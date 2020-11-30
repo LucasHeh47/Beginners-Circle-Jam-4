@@ -21,4 +21,6 @@ public class Weapon : ScriptableObject
 
     public Sprite ProjectileImage;
 
+    public GameObject WeaponObject;
+
 }
