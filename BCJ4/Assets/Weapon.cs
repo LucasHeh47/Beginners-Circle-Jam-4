@@ -23,4 +23,17 @@ public class Weapon : ScriptableObject
 
     public GameObject WeaponObject;
 
+    public bool Unlocked;
+
+    public void Unlock()
+    {
+        Unlocked = true;
+    }
+
+    public void Lock()
+    {
+        Unlocked = false;
+    }
+
+
 }

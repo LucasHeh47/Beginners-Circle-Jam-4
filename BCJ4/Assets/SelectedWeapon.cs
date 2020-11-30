@@ -5,17 +5,38 @@ using UnityEngine;
 public class SelectedWeapon : MonoBehaviour
 {
 
-    public GameObject[] weapons;
+    public SpriteRenderer weaponSprite;
 
-    // Start is called before the first frame update
+
+    public Weapon[] weapons;
+
+    public Weapon equipped;
+
     void Start()
     {
-        
+        SetEquipped(weapons[0]);
+        Debug.Log(equipped.name + " " + equipped.Damage);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    public void SetEquipped(Weapon weapon)
+    {
+        equipped = weapon;
+        weaponSprite.sprite = weapon.WeaponImage;
+    }
+
+    private Weapon GetByName(string name)
+    {
+        foreach (Weapon weapon in weapons)
+        {
+            if (weapon.name.Equals(name)) return weapon;
+        }
+        Debug.Log("Weapon not found! SelectedWeapon.cs / GetByName()");
+        return null;
+    }
+
 }
