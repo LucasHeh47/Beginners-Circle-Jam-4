@@ -15,13 +15,15 @@ public class Enemy : ScriptableObject
 
     public float Health;
 
+    public AudioSource AttackSound;
+
     public bool Stationary;
 
     public bool FollowsPlayer;
 
     public float FollowingRange;
 
-    public float movementSpeed;
+    public float MovementSpeed;
 
     public float AttackRate;
 

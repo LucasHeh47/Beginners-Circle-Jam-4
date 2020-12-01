@@ -7,6 +7,7 @@ public class SelectedWeapon : MonoBehaviour
 
     public SpriteRenderer weaponSprite;
 
+    public static SelectedWeapon Instance;
 
     public Weapon[] weapons;
 
@@ -14,7 +15,8 @@ public class SelectedWeapon : MonoBehaviour
 
     void Start()
     {
-        SetEquipped(weapons[0]);
+        Instance = this;
+        SetEquipped(weapons[1]);
         Debug.Log(equipped.name + " " + equipped.Damage);
     }
 
@@ -26,6 +28,7 @@ public class SelectedWeapon : MonoBehaviour
     public void SetEquipped(Weapon weapon)
     {
         equipped = weapon;
+        SetUpPlayerAttack();
         weaponSprite.sprite = weapon.WeaponImage;
     }
 
@@ -35,8 +38,16 @@ public class SelectedWeapon : MonoBehaviour
         {
             if (weapon.name.Equals(name)) return weapon;
         }
-        Debug.Log("Weapon not found! SelectedWeapon.cs / GetByName()");
         return null;
+    }
+
+    private void SetUpPlayerAttack()
+    {
+        PlayerAttack.Instance.equipped = equipped;
+        PlayerAttack.Instance.damage = equipped.Damage;
+        PlayerAttack.Instance.useRate = equipped.UseRate;
+        PlayerAttack.Instance.range = equipped.Range;
+        PlayerAttack.Instance.unlocked = equipped.Unlocked;
     }
 
 }
