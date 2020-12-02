@@ -9,6 +9,8 @@ public class Enemy : ScriptableObject
 
     public enum type { Melee, Ranged, None };
 
+    public string Name;
+
     public type WeaponType;
 
     public float Damage;

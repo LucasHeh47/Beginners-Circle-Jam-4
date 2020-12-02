@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Ground
+  - Coin
+  - player
   layers:
   - Default
   - TransparentFX
@@ -14,14 +17,14 @@ TagManager:
   - UI
   - 
   - 
+  - HealthbarRed
+  - HealthbarGreen
+  - HealthbarFrame
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - PostProcessing
   - 
   - 
   - 

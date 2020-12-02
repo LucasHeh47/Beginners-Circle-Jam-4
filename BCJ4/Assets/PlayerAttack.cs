@@ -27,16 +27,16 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time >= nextTimeToAttack)
+        if (Input.GetMouseButton(0) && Time.time >= nextTimeToAttack && !PlayerMovement.Instance.inventory.activeSelf)
         {
             if (equipped.WeaponType == Weapon.type.Melee)
             {
+                nextTimeToAttack = Time.time + 1f / useRate;
                 weapon.eulerAngles = new Vector3(weapon.eulerAngles.x, weapon.eulerAngles.y, -90);
                 RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
                 if (!hit) return;
                 if (hit.transform.CompareTag("Enemy") && Vector3.Distance(transform.position, hit.transform.position) <= range)
                 {
-                    nextTimeToAttack = Time.time + 1f / useRate;
                     hit.transform.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
                 }
 
@@ -53,4 +53,10 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     }
+
+    public void EnemyKilled(Enemy enemy)
+    {
+        PlayerExperience.Instance.AddExperience((int) enemy.Health * 2);
+    }
+
 }

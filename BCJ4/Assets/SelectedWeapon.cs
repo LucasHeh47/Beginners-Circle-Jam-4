@@ -16,7 +16,7 @@ public class SelectedWeapon : MonoBehaviour
     void Start()
     {
         Instance = this;
-        SetEquipped(weapons[1]);
+        SetEquipped(weapons[0]);
         Debug.Log(equipped.name + " " + equipped.Damage);
     }
 

@@ -10,6 +10,11 @@ public class PlayerHealth : MonoBehaviour
     public Slider healthbar;
     public TextMeshProUGUI healthText;
 
+    [HideInInspector]
+    public Transform PlayerPosition;
+
+    public static PlayerHealth Instance;
+
     public bool isDead = false;
 
     public float maxHealth = 25;
@@ -17,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
+        PlayerPosition = transform;
         healthbar.maxValue = maxHealth;
         healthbar.value = maxHealth;
     }
@@ -39,6 +46,6 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PlayerPosition = transform;
     }
 }

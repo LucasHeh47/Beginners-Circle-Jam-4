@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028ddb99f66adcb43a875d4c3d8cb341, type: 3}
   m_Name: Reaper
   m_EditorClassIdentifier: 
+  Name: Reaper
   WeaponType: 0
-  Damage: 5
-  Health: 10
+  Damage: 2
+  Health: 3
   AttackSound: {fileID: 0}
   Stationary: 0
   FollowsPlayer: 1

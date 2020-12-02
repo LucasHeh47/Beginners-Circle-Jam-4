@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance;
+
     public Transform MainPlayer;
+
+    public GameObject inventory;
 
     public float movementSpeed = 5f;
     public PlayerHealth health;
 
     private bool lookingLeft;
 
+    void Start()
+    {
+        Instance = this;
+    }
+
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!health.isDead)
         {
@@ -46,4 +55,20 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
+
+    void Update()
+    {
+        if (!health.isDead && Input.GetKeyDown(KeyCode.E))
+        {
+            if (inventory.activeSelf)
+            {
+                inventory.SetActive(false);
+            }
+            else
+            {
+                inventory.SetActive(true);
+            }
+        }
+    }
+
 }

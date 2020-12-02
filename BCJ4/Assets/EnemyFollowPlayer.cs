@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyFollowPlayer : MonoBehaviour
 {
 
-    public Transform player;
+    private Transform player;
 
     public Enemy enemy;
 
@@ -26,7 +26,8 @@ public class EnemyFollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
+        player = PlayerHealth.Instance.PlayerPosition;
+
         if (Vector3.Distance(player.transform.position, transform.position) <= followingRange && Vector3.Distance(player.transform.position, transform.position) > enemy.AttackRange)
         {
             transform.position += (player.position - transform.position).normalized * movementSpeed * Time.deltaTime;

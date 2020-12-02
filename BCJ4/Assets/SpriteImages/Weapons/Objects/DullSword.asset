@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponType: 0
   Damage: 1
-  UseRate: 3
-  Range: 0.5
+  UseRate: 2
+  Range: 2
   WeaponImage: {fileID: 21300000, guid: 66dfee50fcddb9d46bd70a241d7f16d0, type: 3}
   ProjectileImage: {fileID: 0}
   WeaponObject: {fileID: 0}
