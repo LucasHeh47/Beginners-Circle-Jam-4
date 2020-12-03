@@ -28,6 +28,16 @@ public class PlayerHealth : MonoBehaviour
         healthbar.value = maxHealth;
     }
 
+    public void Heal(float health)
+    {
+        healthbar.value += health;
+        if (healthbar.value >= healthbar.maxValue)
+        {
+            healthbar.value = healthbar.maxValue;
+        }
+        healthText.SetText(healthbar.value.ToString());
+    }
+
     public void TakeDamage(float damage)
     {
         healthbar.value -= damage;
@@ -48,4 +58,11 @@ public class PlayerHealth : MonoBehaviour
     {
         PlayerPosition = transform;
     }
+    
+    public void CollectHeart()
+    {
+        healthbar.value = healthbar.maxValue;
+        healthText.SetText(healthbar.value.ToString());
+    }
+
 }

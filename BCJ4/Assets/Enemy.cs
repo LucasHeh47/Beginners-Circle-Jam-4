@@ -35,4 +35,6 @@ public class Enemy : ScriptableObject
 
     public Sprite ProjectileImage;
 
+    public int CoinDropAmount;
+
 }

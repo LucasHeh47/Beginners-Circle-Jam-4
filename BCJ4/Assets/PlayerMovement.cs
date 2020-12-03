@@ -47,10 +47,12 @@ public class PlayerMovement : MonoBehaviour
             if (lookingLeft)
             {
                 MainPlayer.eulerAngles = new Vector3(0, 180, 0);
+                MainPlayer.position = new Vector3(MainPlayer.position.x, MainPlayer.position.y, 3);
             }
             else
             {
                 MainPlayer.eulerAngles = new Vector3(0, 0, 0);
+                MainPlayer.position = new Vector3(MainPlayer.position.x, MainPlayer.position.y, 3);
             }
 
         }

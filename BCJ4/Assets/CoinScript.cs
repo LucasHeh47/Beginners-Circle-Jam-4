@@ -6,13 +6,15 @@ public class CoinScript : MonoBehaviour
 {
     private Transform target;
 
+    public static CoinScript Instance;
+
     public float speed = 10f;
-    private float coinSpeed = 3f;
+    public float coinSpeed = 3f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instance = this;
     }
 
     // Update is called once per frame

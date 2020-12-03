@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
 
     public float health;
 
+    public GameObject coin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +34,14 @@ public class EnemyHealth : MonoBehaviour
 
     public void Die()
     {
+        for (int i = 0; i < enemy.CoinDropAmount; i++)
+        {
+            GameObject newCoin = Instantiate(coin);
+            newCoin.transform.position = gameObject.transform.position;
+        }
         Destroy(gameObject);
         PlayerAttack.Instance.EnemyKilled(enemy);
+        PlayerHealth.Instance.Heal(enemy.Health/2);
     }
 
 }
