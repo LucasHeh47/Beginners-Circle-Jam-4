@@ -25,6 +25,10 @@ public class Weapon : ScriptableObject
 
     public bool Unlocked;
 
+    public float Price;
+
+    public int levelToUnlock;
+
     public void Unlock()
     {
         Unlocked = true;

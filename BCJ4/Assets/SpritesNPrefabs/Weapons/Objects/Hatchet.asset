@@ -20,3 +20,5 @@ MonoBehaviour:
   ProjectileImage: {fileID: 0}
   WeaponObject: {fileID: 0}
   Unlocked: 0
+  Price: 1000
+  levelToUnlock: 6

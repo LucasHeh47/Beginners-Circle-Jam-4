@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemyHighlight : MonoBehaviour
 {
 
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
 
     public Sprite normal;
     public Sprite highlighted;
 
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        //sprite = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
