@@ -58,6 +58,7 @@ public class PlayerExperience : MonoBehaviour
         level++;
         slider.maxValue = expNeededToLevelUp;
         slider.value = experience;
+        PlayerSkillPoints.Instance.skillPoints++;
         levelText.SetText(level.ToString());
         return true;
     }

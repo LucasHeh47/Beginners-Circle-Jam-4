@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed = 5f;
     public PlayerHealth health;
 
+    public Animator animator;
+    public Animator petAnimator;
+
     private bool lookingLeft;
 
     void Start()
@@ -28,20 +31,34 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y + movementSpeed * Time.deltaTime, transform.position.z);
+                animator.SetFloat("Speed", 1);
+                petAnimator.SetFloat("Speed", 1);
             }
             if (Input.GetKey(KeyCode.S))
             {
                 transform.position = new Vector3(transform.position.x, transform.position.y - movementSpeed * Time.deltaTime, transform.position.z);
+                animator.SetFloat("Speed", 1);
+                petAnimator.SetFloat("Speed", 1);
             }
             if (Input.GetKey(KeyCode.A))
             {
                 lookingLeft = true;
                 transform.position = new Vector3(transform.position.x - movementSpeed * Time.deltaTime, transform.position.y, transform.position.z);
+                animator.SetFloat("Speed", 1);
+                petAnimator.SetFloat("Speed", 1);
             }
             if (Input.GetKey(KeyCode.D))
             {
                 lookingLeft = false;
                 transform.position = new Vector3(transform.position.x + movementSpeed * Time.deltaTime, transform.position.y, transform.position.z);
+                animator.SetFloat("Speed", 1);
+                petAnimator.SetFloat("Speed", 1);
+            }
+
+            if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+            {
+                animator.SetFloat("Speed", 0);
+                petAnimator.SetFloat("Speed", 0);
             }
 
             if (lookingLeft)
