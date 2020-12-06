@@ -17,6 +17,32 @@ public class PlayerSkillPoints : MonoBehaviour
         Instance = this;
     }
 
+    public void DecrementPoints()
+    {
+        skillPoints--;
+    }
+
+    public void IncrementPoints()
+    {
+        skillPoints++;
+    }
+
+    public void IncrementDmg()
+    {
+        dmg++;
+    }
+
+    public void IncrementHp()
+    {
+        hp++;
+    }
+
+    public void IncrementSpeed()
+    {
+        speed++;
+    }
+
+
     // Update is called once per frame
     void Update()
     {
